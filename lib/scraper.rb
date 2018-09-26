@@ -14,7 +14,7 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     doc = Nokogiri::HTML(open(profile_url))
-    binding.pry
+    # binding.pry
     {
       :linkedin=>doc.css('div.social-icon-container').css('a')[1].attribute('href').value,
       :github=>doc.css('div.social-icon-container').css('a')[2].attribute('href').value,

@@ -16,11 +16,11 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
     # binding.pry
     student={
-      profile_quote: profile_page.css(".profile-quote").text,
-      bio: profile_page.css("div.bio-content.content-holder div.description-holder p").text
+      profile_quote: profile_url.css(".profile-quote").text,
+      bio: profile_url.css("div.bio-content.content-holder div.description-holder p").text
     }
     
-    links = profile_page.css(".social-icon-container").children.css("a").map { |el| el.attribute('href').value}
+    links = profile_url.css(".social-icon-container").children.css("a").map { |el| el.attribute('href').value}
     links.each do |link|
       if link.include?("linkedin")
         student[:linkedin] = link

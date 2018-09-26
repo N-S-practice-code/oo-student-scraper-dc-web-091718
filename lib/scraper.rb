@@ -17,7 +17,7 @@ class Scraper
     # binding.pry
     student={
       profile_quote: profile_page.css(".profile-quote").text if profile_page.css(".profile-quote")
-      bio:
+      bio: profile_page.css("div.bio-content.content-holder div.description-holder p").text if profile_page.css("div.bio-content.content-holder div.description-holder p")
     }
     links = profile_page.css(".social-icon-container").children.css("a").map { |el| el.attribute('href').value}
     links.each do |link|
